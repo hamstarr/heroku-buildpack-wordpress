@@ -16,7 +16,8 @@ MCRYPT_FILE="libmcrypt-${LIBMCRYPT_VERSION}.tar.gz"
 
 #
 NGINX_URL="https://s3.amazonaws.com/${S3_BUCKET}/nginx-${NGINX_VERSION}-heroku.tar.gz"
-PHP_URL="https://s3.amazonaws.com/${S3_BUCKET}/php-${PHP_VERSION}-with-fpm-heroku.tar.gz"
+# PHP_URL="https://s3.amazonaws.com/${S3_BUCKET}/php-${PHP_VERSION}-with-fpm-heroku.tar.gz"
+PHP_URL="https://s3.amazonaws.com/heroku-buildpack-php-tyler/php-5.4.17-with-fpm-heroku.tar.gz"
 WORDPRESS_URL="http://wordpress.org/wordpress-${WORDPRESS_VERSION}.tar.gz"
 MCRYPT_URL="http://rumblelabs.s3.amazonaws.com/REQUIRED_FOR_DEPLOYMENT/${MCRYPT_FILE}"
 #
@@ -46,6 +47,7 @@ cd ${BUILD_DIR}
 echo "-----> Installing libmcrypt"
 echo "Bundling libmcrypt v${LIBMCRYPT_VERSION}" | indent
 echo ${MCRYPT_URL} | indent
+mkdir -p ./local && cd ./local
 curl --silent --max-time 60 --location $MCRYPT_URL | tar xz
 
 # PHP
