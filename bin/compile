@@ -46,7 +46,7 @@ cd ${BUILD_DIR}
 echo "-----> Installing libmcrypt"
 echo "Bundling libmcrypt v${LIBMCRYPT_VERSION}" | indent
 echo ${MCRYPT_URL} | indent
-curl --silent --max-time 60 --location $MCRYPT_URL | tar xzf
+curl --silent --max-time 60 --location $MCRYPT_URL | tar xz
 
 # PHP
 cd ${BUILD_DIR}
